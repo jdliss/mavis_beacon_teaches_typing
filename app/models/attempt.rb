@@ -5,6 +5,6 @@ class Attempt < ActiveRecord::Base
   def percent_correct
     level.text.chars.map.with_index do |char, index|
       char == text.chars[index] ? 1 : 0
-    end.reduce(:+)*100/level.text.length
+    end.sum*100/level.text.length
   end
 end
